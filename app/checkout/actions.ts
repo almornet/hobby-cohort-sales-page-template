@@ -1,5 +1,6 @@
 'use server'
 
+import { pageContent } from '@/content/page'
 import { cookies } from 'next/headers'
 import Stripe from 'stripe'
 
@@ -17,7 +18,7 @@ function megaBonusMetadata(): Record<string, string> {
 export async function createPaymentIntent() {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: 4700, // $47.00 in cents
+    amount: pageContent.pricing.cents,
     currency: 'usd',
     automatic_payment_methods: { enabled: true },
     metadata: megaBonusMetadata(),

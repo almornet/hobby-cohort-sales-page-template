@@ -144,6 +144,7 @@ interface PageContent {
   pricing: {
     anchor: string;
     current: string;
+    cents: number;
     ctaLabel: string;
     guarantee: string;
   };
@@ -204,7 +205,7 @@ export const pageContent: PageContent = {
   subheadline:
     "No artistic experience needed — just paint, a canvas, and the hairdryer already sitting in your bathroom.",
   headline: "Create Stunning Abstract Art — With Just a Hairdryer",
-  moodSetterImageAlt: "Hero — finished abstract art created using The Hairdryer Canvas Course ",
+  moodSetterImageAlt: "Mood Setter — finished abstract art created using The Hairdryer Canvas Course ",
   moodSetterImageSrc: "/assets/mood-setter.png",
   leadBullets: [
     "Imagine if you could **turn a blank canvas into a swirling explosion of color** using nothing more than acrylic paint and the hairdryer already in your bathroom.",
@@ -311,6 +312,7 @@ export const pageContent: PageContent = {
   pricing: {
     anchor: "$97",
     current: "$47",
+    cents: 4700,
     ctaLabel: "GET INSTANT ACCESS NOW >>",
     guarantee: "30-day money-back guarantee. One email. All your money back. No questions asked.",
   },
