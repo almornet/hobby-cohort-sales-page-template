@@ -21,13 +21,18 @@ Open [http://localhost:3000](http://localhost:3000). Checkout lives at `/checkou
 
 ## Environment variables
 
-See [`.env.example`](.env.example) for descriptions. Minimum to exercise checkout locally: `STRIPE_SECRET_KEY` and `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`. Analytics and CAPI are optional if you omit or leave placeholder IDs (components typically no-op when unset).
+See [`.env.example`](.env.example) for descriptions. Minimum to exercise checkout locally: `STRIPE_SECRET_KEY` and `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`. Analytics and CAPI are optional if you omit or leave placeholder IDs (components typically no-op when unset). **`META_TEST_EVENT_CODE`** and **`REDIS_URL`** are always optional (testing CAPI and shared countdown, respectively).
 
 ## Deploy to Vercel
 
-Set the same variables in your Vercel project (**Settings → Environment Variables**). For production Stripe, use live keys. Add a Redis integration if you want the countdown deadline shared per IP across devices.
+Set variables in your Vercel project (**Settings → Environment Variables**). For production Stripe, use live keys.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAlmorNet%2Fhobby-cohort-sales-page-template&project-name=hobby-cohort-sales-page&repository-name=hobby-cohort-sales-page&env=NEXT_PUBLIC_CLARITY_PROJECT_ID%2CNEXT_PUBLIC_META_PIXEL_ID%2CMETA_PIXEL_ID%2CMETA_ACCESS_TOKEN%2CMETA_TEST_EVENT_CODE%2CSTRIPE_SECRET_KEY%2CNEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY%2CREDIS_URL&envDescription=Copy%20from%20.env.example%20and%20README%20environment%20section.&envLink=https%3A%2F%2Fgithub.com%2FAlmorNet%2Fhobby-cohort-sales-page-template%23environment-variables)
+The **Deploy** button below only prompts for variables that are usually required for a working deploy. **Optional** secrets—add them in the Vercel dashboard later if you need them:
+
+- **`META_TEST_EVENT_CODE`** — Meta CAPI test events only; omit in production.
+- **`REDIS_URL`** — IP-stable countdown across browsers; if unset, the app uses cookies only.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAlmorNet%2Fhobby-cohort-sales-page-template&project-name=hobby-cohort-sales-page&repository-name=hobby-cohort-sales-page&env=NEXT_PUBLIC_CLARITY_PROJECT_ID%2CNEXT_PUBLIC_META_PIXEL_ID%2CMETA_PIXEL_ID%2CMETA_ACCESS_TOKEN%2CSTRIPE_SECRET_KEY%2CNEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY&envDescription=Required%20for%20deploy%3B%20add%20META_TEST_EVENT_CODE%20and%20REDIS_URL%20in%20Vercel%20if%20needed%20(see%20README).&envLink=https%3A%2F%2Fgithub.com%2FAlmorNet%2Fhobby-cohort-sales-page-template%23deploy-to-vercel)
 
 ## Scripts
 
